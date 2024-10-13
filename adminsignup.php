@@ -103,8 +103,7 @@ switch($_SERVER['REQUEST_METHOD']){
         }
       }
       if($flag === 0){
-          $hash_password = password_hash($admin_password,PASSWORD_DEFAULT);
-          $sql = "INSERT INTO admins(USERNAME , EMAIL_ID , PASSWORD) VALUES('{$admin_username}','{$admin_email}','{$hash_password}')";
+          $sql = "INSERT INTO admins(USERNAME , EMAIL_ID , PASSWORD) VALUES('{$admin_username}','{$admin_email}','{$admin_password}')";
           $result = mysqli_query($conn,$sql) or die('SQL query failed!');
           if($result){
             echo json_encode(array('result' =>'signup successful'));

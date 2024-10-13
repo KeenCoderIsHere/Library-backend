@@ -1,0 +1,401 @@
+The given RESTful API contains different files for handling different operations such as Admin-Login , Student-Login etc.
+Here is the detailed API Specification with the expected request and response formats: 
+(All details are to be given as they are case sensitive). Requests are sent through the JavaScript Object Notation Body format. 
+
+
+1. Admin login (ADMIN):
+	Endpoint: POST http://localhost/LIBRARY/adminlogin
+	Request format: 
+		{
+			"admin_username" : "string",
+			"admin_password" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{
+			"result" : "string",
+			"token" : "string"
+		}
+
+
+
+2. Admin signup (ADMIN):
+	Endpoint: POST http://localhost/LIBRARY/adminsignup
+	Request format: 
+		{
+			"admin_username" : "string",
+			"admin_email_id" : "string",
+			"admin_password" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{
+			"result" : "string"
+		}
+
+
+3. Approve (ADMIN):
+	Endpoint: PUT http://localhost/LIBRARY/approve
+	Request format: 
+		{
+			"student_username" : "string",
+			"student_approved" : integer
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{
+			"result" : "string"
+		}
+
+
+4. Book borrowed by a student (STUDENT):
+	Endpoint: POST http://localhost/LIBRARY/booksborrowed
+	Request format: 
+		{
+			"student_username" : "string",
+			"student_password" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{
+			"book_name": "string"
+		}
+
+
+5. Check all books borrowed (ADMIN):
+	Endpoint: POST http://localhost/LIBRARY/checkbooksborrowed
+	Request format: 
+		{
+			"admin_username" : "string",
+			"admin_password" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			"student name" : "string",
+			"book name" : "string"
+		}
+
+
+6. Check all books borrowed by book name(ADMIN):
+	Endpoint: POST http://localhost/LIBRARY/checkbooksbybookname
+	Request format: 
+		{
+			"admin_username" : "string",
+			"admin_password" : "string",
+			"book_name" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+			OR
+		{
+			"result" : "string"
+		}
+	Response format (Success):
+		{	
+			"student name" : "string"
+		}
+
+
+7. Check return or issue dates (STUDENT):
+	Endpoint: POST http://localhost/LIBRARY/checkdate
+	Request format: 
+		{
+			"student_username" : "string",
+			"student_password" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			"date of issue" : "string",
+			"date to be returned" : "string"
+		}
+
+8. Delete student by student username (ADMIN):
+	Endpoint: DELETE http://localhost/LIBRARY/deletestudent
+	Request format: 
+		{
+			"admin_username" : "string",
+			"admin_password" : "string",
+			"student_username" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			"result" : "string"
+		}
+
+9. Display all books (STUDENT):
+	Endpoint: POST http://localhost/LIBRARY/displaybooks
+	Request format: 
+		{
+			"student_username" : "string",
+			"student_password" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			book name" : "string"
+		}
+
+
+10. Display all students and their details (ADMIN):
+	Endpoint: POST http://localhost/LIBRARY/displaystudents
+	Request format: 
+		{
+			"admin_username" : "string",
+			"admin_password" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			"student name" : "string",
+			"student course" : "string",
+			"date of issue" : "string",
+			"date to be returned" : "string",
+			"book borrowed" : "string",
+			"approved" : integer
+		}
+
+
+11. Check due amount (STUDENT):
+	Endpoint: POST http://localhost/LIBRARY/dueamount
+	Request format: 
+		{
+			"student_username" : "string",
+			"student_password" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			"result" : "string"
+		}
+			OR
+		{
+			"due amount" : "string"
+		}
+
+
+12. Create new book(ADMIN):
+	Endpoint: POST http://localhost/LIBRARY/insertbook
+	Request format: 
+		{
+			"admin_username" : "string",
+			"admin_password" : "string",
+			"book_name" : "string",
+			"course_name" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			"result" : "string"
+		}
+
+13. Insert new student (ADMIN):
+	Endpoint: POST http://localhost/LIBRARY/insertstudent
+	Request format: 
+		{
+			"admin_username" : "string",
+			"admin_password" : "string",
+			"student_book_name" : "string",
+			"student_course" : "string",
+			"student_approved" : integer,
+			"student_username" : "string",
+			"student_password" : "string",
+			"student_date_of_issue" : "string",
+			"student_date_to_be_returned" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			"result" : "string"
+		}
+
+
+14. Insert new student (ADMIN):
+	Endpoint: POST http://localhost/LIBRARY/insertstudent
+	Request format: 
+		{
+			"admin_username" : "string",
+			"admin_password" : "string",
+			"student_book_name" : "string",
+			"student_course" : "string",
+			"student_approved" : integer,
+			"student_username" : "string",
+			"student_password" : "string",
+			"student_date_of_issue" : "string",
+			"student_date_to_be_returned" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			"result" : "string"
+		} 
+
+
+
+15. Select book (STUDENT):
+	Endpoint: POST http://localhost/LIBRARY/selectbook
+	Request format: 
+		{
+			"student_book_name" : "string",
+			"student_username" : "string",
+			"student_password" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			"result" : "string"
+		}
+
+
+
+16. Select User:
+	Endpoint: POST http://localhost/LIBRARY/selectuser
+	Request format: 
+		{
+			"user_type" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			"user" : "string"
+		}
+
+
+17. Student login (STUDENT):
+	Endpoint: POST http://localhost/LIBRARY/studentlogin
+	Request format: 
+		{
+			"student_username" : "string",
+			"student_password" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			"result" : "string",
+			"token" : "string"
+		}
+	Endpoint: GET http://localhost/LIBRARY/studentlogin
+	Request format (With bearer token as the received JWT from above POST request):
+		{
+			"student_username" : "string",
+			"student_password" : "string"
+		}
+	Response format (Error):
+		{
+			"result" : "string"
+		}
+			OR
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success): 
+		{
+			"result" : "string"
+		}
+
+18. Student register (STUDENT):
+	Endpoint: POST http://localhost/LIBRARY/studentregister
+	Request format: 
+		{
+			"student_username" : "string",
+			"student_password" : "string",
+			"student_course" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			"result" : "string"
+		}
+
+
+19. Update student (ADMIN):
+	Endpoint: PUT http://localhost/LIBRARY/updatestudent
+	Request format: 
+		{
+			"admin_username" : "string",
+			"admin_password" : "string",
+			"student_username" : "string"
+		}
+	Response format (Error): 
+		{
+			"result" : "string",
+			"reason" : "string"
+		}
+	Response format (Success):
+		{	
+			"result" : "string"
+		}	

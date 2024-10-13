@@ -1,0 +1,27 @@
+# The submitted RESTful API was written with server side scripting language -> php 
+# The database was implemented in MySQL (actually using phpmyadmin which is present in the dashboard of the 
+xampp webpage).
+# For opening the dashboard of xampp, we need to first start Apache and MySQL connections using xampp control panel.  
+# For reviewing and deploying the backend service on a server, we need : 
+		-> Postman 
+		-> xampp control panel
+		-> Any text editor of your choice
+# Postman is used to send and receive HTTP requests to and from the API.
+# xampp is generally required to run php with MySQL.
+# In postman , we need to enter the URLs listed in the API_Specifications file and start requesting the API. 
+# JavaScript Object Notation Web Tokens are used for authentication in login sections of the backend service.
+# For security purposes , passwords have been accepted after confirming they are strong and specific functions are present
+(config.php) inorder to encrypt and decrypt passwords and store them safely.
+# Specific headers are used for authentication and security purposes such as X-Requested-With,..etc.
+# Status codes have been implemented for their respective purposes such as 422(Unprocessable entity in case of invalid inputs) , 
+405(Method not allowed in case of other HTTP requests).
+# Invalid requests and errors are handled if the API receives any invalid data or malformed data , it prints the result and the
+reason of occurance of the error raised.
+ex:-(/LIBRARY/updatestudent)
+	{
+		"result" : "updation unsuccessful",
+		"reason" : "no such username found"
+	}
+# Also student users have only access to certain routes , that too only if authenticated and verified in the database.
+# The API also handles exceptions caused due to input data given by admins.
+# If you have any queries , please contact susheethvenkatraman@gmail.com 

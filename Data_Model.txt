@@ -1,0 +1,41 @@
+This file contains detailed information about the data models and database schema.
+All the below tables are maintained under the database Library.
+
+Table 1 : admins 
+
+CREATE TABLE admins (
+    ID INT NOT NULL AUTO_INCREMENT,         	 -> ID column, auto-incrementing integer
+    USERNAME VARCHAR(300) NOT NULL PRIMARY KEY,  -> Unique username as the primary key
+    EMAIL_ID VARCHAR(300) NOT NULL UNIQUE,  	 -> Unique email address, not null
+    PASSWORD VARCHAR(300) NOT NULL,         	 -> Password, not null
+    UNIQUE (ID)                             	 -> Ensure ID is unique
+);
+
+Table 2 : students 
+
+CREATE TABLE students (
+    ID INT NOT NULL AUTO_INCREMENT,                	 -> ID column, auto-incrementing integer
+    STUDENT_USERNAME VARCHAR(300) NOT NULL PRIMARY KEY,  -> Unique username as the primary key
+    BOOK_NAME VARCHAR(300),                         	 -> Name of the book issued to the student
+    APPROVED INT(1),                               	 -> Approval status (1 for approved, 0 for not approved)
+    DATE_OF_ISSUE VARCHAR(30),                     	 -> Date when the book was issued
+    COURSE VARCHAR(300),                            	 -> Course name associated with the student
+    DATE_TO_BE_RETURNED VARCHAR(30),                	 -> Date by which the book should be returned
+    PASSWORD VARCHAR(100) NOT NULL,                	 -> Password, not null
+    UNIQUE (ID)                                    	 -> Ensure ID is unique
+);
+
+Table 3 : courses 
+
+CREATE TABLE courses (
+    COURSE_NAME VARCHAR(300) NOT NULL PRIMARY KEY  -> Course name as the primary key, cannot be null
+);
+
+Table 4 :  books 
+
+CREATE TABLE books (
+    BOOK_NAME VARCHAR(300) NOT NULL PRIMARY KEY,   -> Book name as the primary key, cannot be null
+    COURSE_NAME VARCHAR(300)                       -> Course name associated with the book
+);
+
+
